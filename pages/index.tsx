@@ -4,9 +4,15 @@ import styles from "../styles/Home.module.css";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Home: NextPage = () => {
+  const session = useSession();
+
+  console.log(session);
   return (
     <div className={styles.container}>
-      <Button onClick={() => signIn()}>깃허브 로그인</Button>
+      <div>
+        <Button onClick={() => signIn("github")}>깃허브 로그인</Button>
+        <Button onClick={() => signIn("twitch")}>트위치 로그인</Button>
+      </div>
     </div>
   );
 };
